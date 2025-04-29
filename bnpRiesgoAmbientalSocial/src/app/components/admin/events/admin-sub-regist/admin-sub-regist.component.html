@@ -1,0 +1,110 @@
+<div>
+  <h2>
+    Tabla de Sub Registros de Registro Principal: {{ data.currentUniqueKey }}
+  </h2>
+</div>
+<div>
+  <div>
+    <table
+      *ngIf="datatable"
+      datatable
+      [dtOptions]="dtOptions"
+      class="row-border hover"
+    >
+      <thead>
+        <tr>
+          <th class="dt-head-center">ID</th>
+          <th class="dt-head-center">C&oacute;digo Formulario</th>
+          <th class="dt-head-center">Tipo Formulario</th>
+          <th class="dt-head-center">Estado</th>
+          <th class="dt-head-center">Fecha de Creaci&oacute;n</th>
+          <th class="dt-head-center">Fecha Modificaci&oacute;n</th>
+          <th class="dt-head-center">Comentarios</th>
+          <th class="dt-head-center">Opci&oacute;n</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of arrayData">
+          <td>{{ data.id }}</td>
+          <td>{{ data.form_code }}</td>
+          <td>{{ data.form_type }}</td>
+          <td>{{ data.state }}</td>
+          <td>{{ data.creation_date }}</td>
+          <td>{{ data.modification_date }}</td>
+          <td>{{ data.commentarios }}</td>
+          <td>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="
+                doSomethingWithBotton(data.id, data.form_code, data.form_type)
+              "
+            >
+              Ver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="isDecision == true" class="container-foot">
+    <button
+      *ngIf="faseAprovacion == true && highLvlRisk == false"
+      mat-raised-button
+      color="primary"
+      (click)="openNewComment('2')"
+    >
+      Registro Evaluado
+    </button>
+    <button
+    *ngIf="faseAprovacion == true && highLvlRisk == true"
+    mat-raised-button
+    color="primary"
+    (click)="sendKeyToApproval()"
+  >
+    Solicitar Aprobación
+  </button>
+    <button
+      *ngIf="faseAprovacion == true"
+      mat-raised-button
+      color="warn"
+      (click)="openNewComment('3')"
+    >
+      No Aplica Registro
+    </button>
+    <button
+      *ngIf="faseAprovacion == true"
+      mat-raised-button
+      color="accent"
+      (click)="openNewComment('1')"
+    >
+      Corregir Registro
+    </button>
+    <button
+      *ngIf="faseInclusion == true"
+      mat-raised-button
+      color="warn"
+      (click)="openNewComment('4')"
+    >
+      Incluir Actividad
+    </button>
+
+    <button
+    *ngIf="faseGerente == true"
+    mat-raised-button
+    color="warn"
+    (click)="openNewComment('5')"
+  >
+    Declinar
+  </button>
+
+  <button
+  *ngIf="faseGerente == true"
+  mat-raised-button
+  color="primary"
+  (click)="openNewComment('2')"
+>
+ Aprobado
+</button>
+  </div>
+</div>

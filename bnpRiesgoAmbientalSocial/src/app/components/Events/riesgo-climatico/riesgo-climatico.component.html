@@ -1,0 +1,90 @@
+<h2>Seleccione las opciones para determinar el riesgo climático:</h2>
+<form [formGroup]="riesgoClimaticoForm" autocomplete="off">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Seleccione la provincia:</mat-label>
+        <mat-select
+          #provincia
+          formControlName="provincia"
+          (selectionChange)="getDistrito(provincia.value)"
+        >
+          <mat-option
+            *ngFor="let data of provinciaData"
+            [value]="data.provincia"
+          >
+            {{ data.provincia }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Seleccione el distrito:</mat-label>
+        <mat-select
+          #distrito
+          formControlName="distrito"
+          (selectionChange)="getCorregimiento(provincia.value, distrito.value)"
+        >
+          <mat-option *ngFor="let data of distritoData" [value]="data.distrito">
+            {{ data.distrito }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Seleccione el corregimiento:</mat-label>
+        <mat-select
+          #corregimiento
+          formControlName="corregimiento"
+          (selectionChange)="
+            getRisgoClimaticoNivel(
+              provincia.value,
+              distrito.value,
+              corregimiento.value
+            )
+          "
+        >
+          <mat-option
+            *ngFor="let data of corregiminetoData"
+            [value]="data.corregimiento"
+          >
+            {{ data.corregimiento }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Resultado Riesgo Climático</mat-label>
+        <input
+          #nivelRiesgoClimatico
+          matInput
+          formControlName="nivelRisgoClimatico"
+          autocomplete="off"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="button-row">
+    <button mat-raised-button color="warn" (click)="closeDialog()">
+      Cancelar
+    </button>
+    <button
+      [disabled]="!riesgoClimaticoForm.valid"
+      mat-raised-button
+      type="submit"
+      color="primary"
+      (click)="sendNivelRiesgoClimatico(nivelRiesgoClimatico.value)"
+    >
+      Enviar
+    </button>
+  </div>
+</form>

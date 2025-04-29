@@ -1,0 +1,596 @@
+<mat-toolbar class="mat-elevation-z1">
+  <img src="./assets/img/mini-logo-white.png" />
+  <span
+    >Banco Nacional de Panam&aacute; - Gesti&oacute;n de Riesgo Ambiental y
+    Social</span
+  >
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="printDocument()"
+  >
+    <mat-icon fontSet="material-symbols-rounded" class="tool">print</mat-icon>
+  </button>
+  <span class="toolbar-spacer"></span>
+  <button
+    mat-icon-button
+    aria-label="Example icon-button with menu icon"
+    (click)="returnMainPage()"
+  >
+    <mat-icon fontSet="material-symbols-rounded" class="tool"
+      >arrow_back</mat-icon
+    >
+  </button>
+</mat-toolbar>
+
+<div id="PrintContent" class="print-area">
+  <div class="header">
+    <h1>Formulario de Ganaderia: {{ formCode }}</h1>
+  </div>
+  <div class="contenido">
+    <h2>Cliente y Propiedad</h2>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Zona habitacional más cercana:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.zona_habitacional }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Área protegida más cercana:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.area_protegida }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Asentamientos campesinos en la zona:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.asent_camp }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Asentamientos originarios en la zona:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.asent_origi }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Características específicas de la actividad</h2>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Dimensión total de la propiedad (Has/m²):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.dimension_total_propidad }}
+          <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Dimensión ocupada por el proyecto (Has/m²):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.dimension_ocupada }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Tipo de Ganado:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.tipo_ganado }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Cantidad de cabezas:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.cantidad_cabezas_ganado }}
+          <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Cantidad de potreros:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.cantidad_potreros }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Finalidad de la producción:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.finalidad_produccion }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Superficie ganadera propia (Has/m²):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.superficie_propia }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Superficie ganadera arrendada (Has/m²):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.superficie_arrendada }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Área total cultivada (Has/m²):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.area_total_cultivada }} <mat-divider></mat-divider>
+        </p>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <mat-divider></mat-divider>
+    <h2>Legislación y permisos</h2>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Plan de gestión y licencia aprobada por las autoridades:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.legis_perm_01 }} <mat-divider></mat-divider></p>
+      </div>
+      <div *ngIf="this.arrayData.legis_perm_exp_01" class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.legis_perm_exp_01 }} <mat-divider></mat-divider>
+        </p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Cumplimiento con la Ley de Deforestación Cero:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.legis_perm_02 }} <mat-divider></mat-divider></p>
+      </div>
+      <div *ngIf="this.arrayData.legis_perm_exp_02" class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.legis_perm_exp_02 }} <mat-divider></mat-divider>
+        </p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <mat-divider></mat-divider>
+    <h2>Infraestructura</h2>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Tiene energia eléctrica en la estancia:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_01 }} <mat-divider></mat-divider></p>
+      </div>
+      <div *ngIf="this.arrayData.infra_exp_01" class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.infra_exp_01 }} <mat-divider></mat-divider>
+        </p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Otro tipo de energia especificar:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">
+          {{ this.arrayData.infra_exp_02 }} <mat-divider></mat-divider>
+        </p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Disponibilidad de agua:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_03 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_exp_03 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Maquinarias propias:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_04 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_exp_04 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Maquinarias alquiladas para las labores:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_05 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_exp_05 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <h3>¿De dónde obtiene el cliente sus insumos?</h3>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Nombre de la empresa proveedora:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_06 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Insumos proveídos por la empresa:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_07 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          La empresa provee asesoramiento técnico sobre la utilización de sus
+          productos:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.infra_08 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Manejo y Mitigación</h2>
+    <h3><b>Suelo:</b></h3>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Protección de pendiente:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_01 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_01 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Evita el sobrepastoreos en los potreros, rotación del ganado para
+          evitar la erosión:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_02 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Implementa sistemas silvopastoriles:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_03 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_03 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Forestación/Reforestación en el establecimiento:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_04 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_04 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Mejora la productividad de los pastos para hacerlos más
+          conservacionistas y menos degradados:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_05 }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_05 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Evita la tala de bosques nativos para el establecimiento de nuevos
+          pastizales:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_06 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.suelo_exp_06 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <h3><b>Agua:</b></h3>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Protección de nacientes y cursos de agua, en el caso que exista en la
+          propiedad:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.agua_01 }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.agua_exp_01 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Cantidad de agua utilizada por día:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.agua_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.agua_exp_02 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <h3><b>Higiene:</b></h3>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Veterinario propio:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_01 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_exp_01 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Medidas de cuidado sanitario:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_exp_02 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Matadero propio:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_03 }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_exp_03 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Medidas de manejo de desechos animales:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_04 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.higiene_exp_04 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <h3><b>Salud, Seguridad y Comunidades:</b></h3>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Los empleados cuentan con seguro médico:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_01 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_exp_01 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Equipos de primeros auxilios (Botiquín):</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_exp_02 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Políticas y programas adecuados para las relaciones con habitantes
+          campesinos o pueblos indígenas en la zona:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_03 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ssc_exp_03 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Planes, políticas y gestiones corporativas</h2>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Información sobre el medio circunvecino respecto de la geología,
+          hidrología, topografía, flora y fauna:
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_01 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_exp_01 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Algún tipo de servicios a la población:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_02 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_exp_02 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Programa de capacitación y adiestramiento - asistencia técnica':
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_03 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_exp_03 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>Medidas de control de incendios forestales:</h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_04 }} <mat-divider></mat-divider></p>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_exp_04 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row full-width">
+      <div class="col">
+        <h3>
+          Barreras naturales de protección (franjas de protección boscosa):
+        </h3>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_05 }} <mat-divider></mat-divider></p>
+      </div>
+
+      <div class="col">
+        <p style="text-align: center;">{{ this.arrayData.ppgc_exp_05 }} <mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Conclusiones</h2>
+    <div class="row">
+      <div class="col">
+        <p style="margin-left: 2rem;">{{ this.arrayData.conclusion }}<mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Recomendaciones</h2>
+    <div class="row full-width">
+      <div class="col">
+        <p style="margin-left: 2rem;">{{ this.arrayData.recomendacion }}<mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <h2>Gerencia Ejecutiva de Sostenibilidad y Gestión Socioambiental</h2>
+    <h3>Nombre del aprobador del registro:</h3>
+    <div class="row">
+      <div class="col">
+        <h2>Aprobado por:</h2>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.userMod }}<mat-divider></mat-divider></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Fecha de Aprobacion:</h2>
+      </div>
+      <div class="col">
+        <p style="text-align: center;">{{ this.dateMod | date:'short' }}<mat-divider></mat-divider></p>
+      </div>
+    </div>
+  </div>
+</div>

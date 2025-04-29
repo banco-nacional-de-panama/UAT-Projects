@@ -1,0 +1,37 @@
+<div class="container-header">
+    <h1>Tabla Principal de Registros</h1>
+  </div>
+  <div class="container">
+    <table
+      *ngIf="datatable"
+      datatable
+      [dtOptions]="dtOptions"
+      class="row-border hover"
+    >
+      <thead>
+        <tr>
+          <th class="dt-head-center">ID</th>
+          <th class="dt-head-center">Llave &Uacute;nica</th>
+          <th class="dt-head-center">N&uacute;mero Cliente</th>
+          <th class="dt-head-center">Nombre Cliente</th>
+          <th class="dt-head-center">Estado</th>
+          <th class="dt-head-center">Fecha Creaci&oacute;n</th>
+          <th class="dt-head-center">Fecha Modificaci&oacute;n</th>
+          <th class="dt-head-center">Comentarios</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of arrayData">
+          <td>{{ data.id }}</td>
+          <td>{{ data.unique_key }}</td>
+          <td>{{ data.customerNumber }}</td>
+          <td>{{ data.customerName }}</td>
+          <td>{{ data.status }}</td>
+          <td>{{ data.creation_date }}</td>
+          <td>{{ data.modification_date }}</td>
+          <td>{{ data.comentarios }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,104 @@
+<lib-layout
+  [appID]="appID"
+  [appName]="appName"
+  [appRequireAuthentication]="true"
+  [appFooterEmail]="appFooterEmail"
+  [appWelcomeTitle]="appWelcomeTitle"
+  [appWelcomeBody]="appWelcomeBody"
+>
+  <a
+    *ngIf="userRole === 'General' || userRole === 'Administrador'"
+    mat-list-item
+    routerLink="/auth/gestionOficial"
+    routerLinkActive="routerLinkActive"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >app_registration</mat-icon
+    >
+    <div mat-line>Gesti&oacute;n Oficial</div>
+  </a>
+
+  <a
+    *ngIf="userRole === 'Analista' || userRole === 'Administrador'"
+    mat-list-item
+    routerLink="/auth/gestionAnalista"
+    routerLinkActive="routerLinkActive"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >app_registration</mat-icon
+    >
+    <div mat-line>Gesti&oacute;n Analista</div>
+  </a>
+
+  <a
+  *ngIf="userRole === 'Gerente' || userRole === 'Administrador'"
+  mat-list-item
+  routerLink="/auth/aprobaciones"
+  routerLinkActive="routerLinkActive"
+>
+  <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+    >check_circle</mat-icon
+  >
+  <div mat-line>Aprobaciones</div>
+</a>
+
+  <a
+    *ngIf="userRole === 'Analista' || userRole === 'Administrador'"
+    mat-list-item
+    routerLink="/auth/historico"
+    routerLinkActive="routerLinkActive"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >history</mat-icon
+    >
+    <div mat-line>Hist&oacute;rico</div>
+  </a>
+
+  <a
+    *ngIf="userRole === 'Analista' || userRole === 'Administrador'"
+    mat-list-item
+    routerLink="/auth/rep-clasificacion"
+    routerLinkActive="routerLinkActive"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >summarize</mat-icon
+    >
+    <div mat-line>Reporte Clasificación</div>
+  </a>
+
+  <a
+  *ngIf="userRole === 'Analista' || userRole === 'Administrador'"
+  mat-list-item
+  routerLink="/auth/rep-seguimiento"
+  routerLinkActive="routerLinkActive"
+>
+  <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+    >summarize</mat-icon
+  >
+  <div mat-line>Reporte Renovaciones</div>
+</a>
+  
+  <a
+    mat-list-item
+    href="http://intranet.banconal.com.pa/manualesyprocedimientos/Instructivos/04 Cr%C3%A9dito/An%C3%A1lisis de Riesgo Social y Ambiental/Lista de exclusi%C3%B3n Ambiental y Social.pdf"
+    target="_blank"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >report_problem</mat-icon
+    >
+    <div mat-line>Actividades Excluyentes</div>
+  </a>
+
+  <a
+    mat-list-item
+    href="http://intranet.banconal.com.pa/manualesyprocedimientos/Instructivos/04 Cr%C3%A9dito/An%C3%A1lisis de Riesgo Social y Ambiental/Gu%C3%ADa para el uso de la Herramienta de An%C3%A1lisis de Riesgo Social y Ambiental.pdf"
+    target="_blank"
+  >
+    <mat-icon fontSet="material-symbols-rounded" mat-list-icon
+      >help_outline</mat-icon
+    >
+    <div mat-line>Ayuda</div>
+  </a>
+
+  <router-outlet></router-outlet>
+</lib-layout>

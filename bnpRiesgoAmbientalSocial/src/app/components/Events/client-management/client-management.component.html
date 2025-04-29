@@ -1,0 +1,129 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<p>
+  Módulo para realizar mantenimiento de los clientes registrados y sus
+  correspondientes registros.
+</p>
+<div class="form-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione el Cliente:</mat-label>
+    <mat-select #t (selectionChange)="getClientinfo(t.value)">
+      <mat-option
+        *ngFor="let item of arrayDataClient"
+        [value]="item.numero_cliente"
+      >
+        {{ item.nombre_cliente }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf="showFields == true" class="form-container">
+  <form [formGroup]="clientInformation" novalidate autocomplete="off">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Nombre Cliente</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="clientName"
+            minlength="3"
+            maxlength="50"
+          />
+           <mat-icon fontSet="material-symbols-rounded" matSuffix mat-list-icon>person</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Ciudad</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="clientDirection"
+            minlength="3"
+            maxlength="100"
+          />
+           <mat-icon fontSet="material-symbols-rounded" matSuffix mat-list-icon>directions</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill" style="width: 26rem">
+          <mat-label>Zona</mat-label>
+          <mat-select
+            #SelectedZoneCode
+            formControlName="clientZona"
+            (selectionChange)="getSelectedZone(SelectedZoneCode.value)"
+          >
+            <mat-option
+              *ngFor="let zona of arrayZone"
+              [value]="zona.zone_code"
+              >{{ zona.zone_descript }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Sucursal del Banco</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="clientSucursal"
+            minlength="3"
+            maxlength="100"
+          />
+           <mat-icon fontSet="material-symbols-rounded" matSuffix mat-list-icon>account_balance</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="fill">
+          <mat-label>Departamento o Banca</mat-label>
+          <mat-select
+            #SelectedBancaDescript
+            formControlName="clientBanca"
+            (selectionChange)="setBancaData(SelectedBancaDescript.value)"
+          >
+            <mat-option
+              *ngFor="let banca of arrayBanca"
+              [value]="banca.bancaDescript"
+              >{{ banca.bancaDescript }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Oficial de Cuenta</mat-label>
+          <input
+            autocomplete="off"
+            matInput
+            formControlName="clientOficial"
+            minlength="3"
+            maxlength="100"
+          />
+           <mat-icon fontSet="material-symbols-rounded" matSuffix mat-list-icon>directions</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div>
+  <mat-divider></mat-divider>
+</div>
+
+<div class="row-button">
+  <button mat-stroked-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-raised-button
+    [disabled]="clientInformation.invalid"
+    color="primary"
+    (click)="sendConfirmation()"
+  >
+    Guardar
+  </button>
+</div>

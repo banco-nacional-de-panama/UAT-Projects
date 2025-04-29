@@ -1,0 +1,19 @@
+.zona-radio-group ul {
+  list-style: none;
+}
+.zona-radio-group li {
+  margin: 4px;
+}
+
+.separador {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 1.5rem;
+}

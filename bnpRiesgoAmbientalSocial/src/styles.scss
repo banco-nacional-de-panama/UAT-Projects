@@ -1,0 +1,184 @@
+//From Google docs
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$base-color: #003d7c;
+
+$bnp-palette: (
+  50 : #e0e8ef,
+  100 : #b3c5d8,
+  200 : #809ebe,
+  300 : #4d77a3,
+  400 : #265a90,
+  500 : $base-color,
+  600 : #003774,
+  700 : #002f69,
+  800 : #00275f,
+  900 : #001a4c,
+  A100 : #809dff,
+  A200 : #4d76ff,
+  A400 : #1a4fff,
+  A700 : #003bff,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+
+
+$my-primary: mat.define-palette($bnp-palette, 500);
+$my-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+      )));
+
+@include mat.all-component-themes($my-theme);
+
+@import 'material-symbols/rounded.scss';
+
+@import '@fontsource/roboto'; // Defaults to weight 400.
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.routerLinkActive {
+  background: rgba(0, 0, 0, .04);
+}
+
+.mat-drawer-container {
+  background-color: white;
+}
+
+.mat-spinner {
+  margin: auto;
+}
+
+.mat-icon,
+.mat-card-title,
+.mat-dialog-title,
+a {
+  color: $base-color;
+}
+
+.mat-raised-button .mat-icon,
+.mat-step-icon .mat-icon {
+  color: #FFFFFF;
+}
+
+/** alerts */
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%
+}
+
+.full-height {
+  height: 100%;
+}
+
+.two-columns td {
+  width: 50%;
+}
+
+.three-columns td {
+  width: 33.3%;
+}
+
+.four-columns td {
+  width: 25%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.mat-form-field {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.font-weight-bold {
+  color: $base-color;
+  font-weight: bold;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.dialog-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}

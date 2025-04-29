@@ -1,0 +1,46 @@
+<div class="contenido">
+  <h1>Reporte de Renovaciones - Fecha: {{ currentdate }}</h1>
+
+  <div *ngIf="datatable" class="table-data">
+    <table datatable [dtOptions]="dtOptions" datatable class="row-border hover">
+      <thead>
+        <tr>
+          <th class="dt-head-center">Id</th>
+          <th class="dt-head-center"># Cliente</th>
+          <th class="dt-head-center">Código Registro</th>
+          <th class="dt-head-center">Fecha Creación</th>
+          <th class="dt-head-center">Fecha Aprobación / Modificación</th>
+          <th class="dt-head-center">Estado</th>
+          <th class="dt-head-center">Banca</th>
+          <th class="dt-head-center">Sucursal</th>
+          <th class="dt-head-center">Sector</th>
+          <th class="dt-head-center">Total de Exposición</th>
+          <th class="dt-head-center">Nivel Resultado</th>
+          <th class="dt-head-center">Rating</th>
+          <th class="dt-head-center">Nivel Riesgo Climático</th>
+          <th class="dt-head-center">Usuario Creador</th>
+          <th class="dt-head-center">Usuario Aprobador</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of arraydata">
+          <td class="dt-body-center">{{ data.id }}</td>
+          <td class="dt-body-center">{{ data.numero_cliente }}</td>
+          <td class="dt-body-center">{{ data.unique_key }}</td>
+          <td class="dt-body-center">{{ data.fecha_creacion }}</td>
+          <td class="dt-body-center">{{ data.fecha_modificacion }}</td>
+          <td class="dt-body-center">{{ data.status }}</td>
+          <td class="dt-body-center">{{ data.banca }}</td>
+          <td class="dt-body-center">{{ data.sucursal }}</td>
+          <td class="dt-body-center">{{ data.descript }}</td>
+          <td class="dt-body-center">{{ data.tota_expo_grupo }}</td>
+          <td class="dt-body-center">{{ data.niver_riesgo_AS }}</td>
+          <td class="dt-body-center">{{ data.rating_AS }}</td>
+          <td class="dt-body-center">{{ data.nivel_riesgo_climatico }}</td>
+          <td class="dt-body-center">{{ data.creationUser }}</td>
+          <td class="dt-body-center">{{ data.modification_user }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
